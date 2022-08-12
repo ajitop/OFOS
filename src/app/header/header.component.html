@@ -17,7 +17,7 @@
       <div class="col">
         <div class="form-group has-search">
           <i class="pi pi-search form-control-feedback"></i>
-          <input type="text" class="form-control" placeholder="Search Item" />
+          <input type="text" class="form-control"  onchange="findItem()" placeholder="Search Item" />
         </div>
       </div>
       <div class="col" style="padding-top: 10px">
@@ -35,9 +35,11 @@
             Registration
           </button>
         </a>
-        <a [routerLink]="['/registration']">
-          <button class="btn btn-dark btn-sm btn-block" type="button">
-            <i class="pi pi-shopping-cart"></i>
+        <a [routerLink]="['/cart']">
+          <button class="btn btn-dark btn-sm btn-block"   type="button">
+            <i class="pi pi-shopping-cart" >
+              <p-badge *ngIf =" count > 0 && count" [value] = {count} severity="success"  severity="success">{{count } }</p-badge>
+            </i>
           </button>
         </a>
       </div>

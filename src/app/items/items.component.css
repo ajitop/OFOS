@@ -33,3 +33,24 @@ li {
     padding-bottom: 10px !important;
     cursor: pointer;
 }
+.p-dialog {
+    display: flex;
+    flex-direction: column;
+    pointer-events: auto;
+    max-height: 90%;
+    transform: scale(1);
+    position: relative;
+    background: green!important;
+}
+body .p-component-overlay {
+    background-color: #424242;
+    opacity: 0.8;
+    filter: alpha(opacity=80);
+  }
+  body, .p-component-overlay {
+    background-color: rgba(0, 0, 0, 0.8);
+    opacity: 1;
+  }
+.tooltip{
+    background-color: black!important;;
+}

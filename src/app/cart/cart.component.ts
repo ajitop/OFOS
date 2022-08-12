@@ -16,10 +16,13 @@ export class CartComponent implements OnInit {
   constructor(private cartService: CartService) { }
 
   ngOnInit(): void {
-    this.cartService.itemChanged.subscribe((data: any) => {
-      this.foods.push(data);
+    // this.foods = this.cartService.subject.subscribe(data => data)
+    this.cartService.subject.subscribe((data: any) => {
+      this.foods = data;
+      // this.foods.push(data);
       this.calculations();
     });
+console.log(this.foods);
 
   }
 
@@ -35,11 +38,12 @@ export class CartComponent implements OnInit {
   onDeleteItem(index: any) {
     this.foods[index].set = 1;
     this.cartService.removeCartItem(index);
-    this.foods.splice(index, 1);
+    // this.foods.splice(index, 1);
     this.calculations();
   }
 
   incrementSets(index: any) {
+    
     this.foods[index].set++;
     this.subTotal += this.foods[index].price;
     this.tax = this.subTotal * 0.10;
@@ -47,10 +51,14 @@ export class CartComponent implements OnInit {
   }
 
   decrementSets(index: any) {
+    console.log('hello dec');
+    
     this.foods[index].set--;
     this.subTotal -= this.foods[index].price;
     this.tax = this.subTotal * 0.10;
     this.total = this.subTotal + this.tax;
   }
-
+  // ngOnDestroy() {
+  //   this.subject.unsubscribe();
+  // }
 }

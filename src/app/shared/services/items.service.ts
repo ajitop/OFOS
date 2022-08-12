@@ -1,3 +1,4 @@
+import { HttpClient } from '@angular/common/http';
 import { Injectable } from '@angular/core';
 
 @Injectable({
@@ -20,9 +21,27 @@ export class ItemsService {
     { type: 'lunch', name: 'Momo', imagePath: 'https://media.istockphoto.com/photos/japanese-dumplings-gyoza-with-pork-meat-and-vegetables-picture-id1133151212', price: 5.00, set: 1 }
   ];
 
-  constructor() { }
+  constructor(private http: HttpClient) { }
 
-  getItems() {
+  rootURL = 'http://67.205.165.41/ofos/api';
+
+  getItems(cat = 'all') {
+     this.http.get(this.rootURL + '/menu.php' + `?cat=1`).subscribe(res => 
+    console.log(res)
+
+      )
+    
+
     return (this.items.slice());
+  }
+
+  getAllCategory(){
+    this.http.get(this.rootURL + '/category.php').subscribe(res => 
+      console.log(res))
+  }
+
+  findItem(itemName: string){
+    this.items = this.items.filter(item => item.name === itemName)
+    return this.items.slice()
   }
 }

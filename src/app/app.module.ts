@@ -6,15 +6,17 @@ import {ButtonModule} from 'primeng/button';
 import { CommonModule } from '@angular/common';
 import { AppRoutingModule } from './app-routing.module';
 import {DialogModule} from 'primeng/dialog';
-
+import { ReactiveFormsModule } from '@angular/forms';
 import { AppComponent } from './app.component';
 import { HeaderComponent } from './header/header.component';
 import { CartComponent } from './cart/cart.component';
 import { ItemsComponent } from './items/items.component';
 import { LoginComponent } from './login/login.component';
 import { RegistrationComponent } from './registration/registration.component';
-
-
+import { ItemDetailComponent } from './item-detail/item-detail.component';
+import {BadgeModule} from 'primeng/badge';
+import {TooltipModule} from 'primeng/tooltip';
+import { HttpClientModule } from '@angular/common/http';
 @NgModule({
   declarations: [
     AppComponent,
@@ -22,16 +24,17 @@ import { RegistrationComponent } from './registration/registration.component';
     CartComponent,
     ItemsComponent,
     LoginComponent,
-    RegistrationComponent
+    RegistrationComponent,
+    ItemDetailComponent
   ],
   imports: [
-    BrowserModule,
-    AppRoutingModule,
-    CardModule,
+    BrowserModule,BadgeModule,
+    AppRoutingModule,TooltipModule,
+    CardModule,HttpClientModule,
     BrowserAnimationsModule,
     ButtonModule,
     CommonModule,
-    DialogModule
+    DialogModule,ReactiveFormsModule
   ],
   providers: [],
   bootstrap: [AppComponent]

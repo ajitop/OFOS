@@ -1,6 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { ItemsService } from '../shared/services/items.service';
 import { CartService } from '../shared/services/cart.service';
+import Swal from 'sweetalert2';
 
 @Component({
   selector: 'app-items',
@@ -17,10 +18,11 @@ export class ItemsComponent implements OnInit {
   ];
 
   public selectedItem = 'all';
+  selectedFood:any;
   items = [];
   canBeAdded: any;
   displayModal: boolean;
-
+  displayDetail:boolean = false;
   constructor(
     private itemService: ItemsService,
     private cartService: CartService
@@ -28,14 +30,45 @@ export class ItemsComponent implements OnInit {
 
   ngOnInit(): void {
     this.items = this.itemService.getItems();
+    this.itemService.getAllCategory()
   }
 
   switchItem(key: any) {
     this.selectedItem = key;
   }
 
-  addToCart(item: any) {
-    this.canBeAdded = this.cartService.addSingle(item);
-    this.displayModal = !this.canBeAdded;
+  findItem(itemName: string){
+    this.items = this.items.filter(item => item.name === itemName)
   }
+
+  showItem(item: any) {
+    console.log(item);
+    this.selectedFood = item;
+
+    Swal.fire({
+      title: item.name,
+      text: item.description,
+      imageUrl: item.imagePath,
+      imageWidth: 400,
+      imageHeight: 200,
+      imageAlt: 'Custom image',
+    })
+    
+    
+  }
+  
+  addToCart(item: any) {
+    this.canBeAdded = this.cartService.addItem(item);
+
+    // this.displayModal = !this.canBeAdded;
+      // Swal.fire({
+      //   toast: true,
+      //   position: 'top',
+      //   showConfirmButton: false,
+      //   icon: 'success',
+      //   timerProgressBar:false,
+      //   timer: 5000,
+      //   title: 'Added to cart'
+      // })
+    }
 }

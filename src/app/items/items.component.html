@@ -4,7 +4,7 @@
       <p-card styleClass="my-card">
         <img class="card-img-top" [src]="itemType.imagePath" alt="Card image cap" style="height: 6rem; width: 8rem;">
         <p-footer>
-          <b>{{itemType.name}}</b>
+          <b (click)="showItem(itemType)">{{itemType.name}}</b>
         </p-footer>
       </p-card>
     </li>
@@ -24,14 +24,44 @@
   <ul>
     <ng-container *ngFor="let item of items">
       <li *ngIf="item.type === selectedItem || selectedItem === 'all' ">
-        <p-card styleClass="item-card" (click)="addToCart(item)">
+        <!-- <p-card styleClass="item-card" (click)="addToCart(item)"> -->
+          <p-card styleClass="item-card" >
+
           <img [src]="item.imagePath" alt="" style="height: 6rem;">
           <p-footer>
-            <b> {{item.name}} </b>
-            <h6>${{item.price}}</h6>
+            <span>
+              <b (click)="showItem(item)"> {{item.name}} </b>
+            </span>
+
+            <span>
+              <h6>${{item.price}}
+              <button class="btn btn-sm btn-block btn-warning btn-default" (click)="addToCart(item)" style="float: right; margin-right: 2px">
+                <i class="pi pi-shopping-cart"></i>
+              </button>
+              <button class="btn btn-sm btn-block btn-warning btn-default" (click)="showItem(item)" style="float: right; margin-right: 2px">
+                <i class="pi pi-eye"></i>
+              </button>
+            </h6>
+            </span>
+            
           </p-footer>
         </p-card>
       </li>
     </ng-container>
   </ul>
 </div>
+
+
+<!-- <p-dialog  id="myDialog" header="ERROR" widgetVar="dlg" modal="true"
+style="background: gray !important;" appendToBody="true"  [(visible)]="displayDetail" modal = "true" style="background-color: rgb(0,0,0,0.4) !important" > -->
+  <!-- <img src="selectedFood.imagePath" alt="" class="src"> -->
+  <!-- <b>{{selectedFood?.name}}</b>
+  
+  \fdsofj -->
+<!-- </p-dialog> -->
+
+<p-dialog header="Title" [(visible)]="displayDetail" [style]="{width: '50vw' , color:'red'}">
+  Content
+</p-dialog>
+
+<!-- <button type="button" (click)="showItem('jfd')" icon="pi pi-info-circle" label="Show"></button> -->
