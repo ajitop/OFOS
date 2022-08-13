@@ -17,6 +17,7 @@ import { ItemDetailComponent } from './item-detail/item-detail.component';
 import {BadgeModule} from 'primeng/badge';
 import {TooltipModule} from 'primeng/tooltip';
 import { HttpClientModule } from '@angular/common/http';
+import { FooterComponent } from './footer/footer.component';
 @NgModule({
   declarations: [
     AppComponent,
@@ -25,7 +26,8 @@ import { HttpClientModule } from '@angular/common/http';
     ItemsComponent,
     LoginComponent,
     RegistrationComponent,
-    ItemDetailComponent
+    ItemDetailComponent,
+    FooterComponent
   ],
   imports: [
     BrowserModule,BadgeModule,
