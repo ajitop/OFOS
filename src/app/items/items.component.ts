@@ -67,6 +67,7 @@ export class ItemsComponent implements OnInit {
   }
   
   addToCart(item: any) {
+    this.selectedItem = item;
     this.canBeAdded = this.cartService.addItem(item);
 
     // this.displayModal = !this.canBeAdded;

@@ -15,7 +15,7 @@ export class RegistrationComponent implements OnInit {
     firstname: new FormControl('', Validators.required),
     lastname: new FormControl('',Validators.required),
     address: new FormControl('',Validators.required),
-    email: new FormControl('', [Validators.required, Validators.email]),
+    email: new FormControl('', [Validators.required]),
     password: new FormControl('', Validators.required)
   });
   constructor(private authService: AuthService) { }
@@ -24,9 +24,11 @@ export class RegistrationComponent implements OnInit {
   ngOnInit(): void {
   }
 onSubmit(){
-const data = this.authService.registration(this.registrationForm).subscribe(res => res
+  console.log(this.registrationForm);
+  
+this.authService.registration(this.registrationForm).subscribe(res => 
+  console.log(res)
   )
-  console.log(data);
   
   
 }
