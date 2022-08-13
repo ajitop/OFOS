@@ -26,7 +26,7 @@ export class RegistrationComponent implements OnInit {
 onSubmit(){
   console.log(this.registrationForm);
   
-this.authService.registration(this.registrationForm).subscribe(res => 
+this.authService.registration(this.registrationForm.value).subscribe(res => 
   console.log(res)
   )
   

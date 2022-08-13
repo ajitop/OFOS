@@ -10,7 +10,7 @@ import { Injectable, EventEmitter } from "@angular/core";
     rootURL = 'http://67.205.165.41/ofos/api';
 
     login(data){
-        return this.http.post(this.rootURL + '/auth.php', {username:data.email,password:data.password});
+        return this.http.post(this.rootURL + '/auth.php', data);
         
     }
     registration(data:any){

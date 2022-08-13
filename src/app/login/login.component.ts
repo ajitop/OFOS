@@ -13,13 +13,15 @@ export class LoginComponent implements OnInit {
   IMAGE_URL = IMAGE_URL;
   LOGO = LOGO;
   loginForm = new FormGroup({
-    email: new FormControl("", Validators.required),
+    username: new FormControl("", Validators.required),
     password: new FormControl("", Validators.required),
   });
   ngOnInit(): void {}
 
   onSubmit() {
-    this.authService.login(this.loginForm.value).subscribe(res => 
+    let username = btoa(this.loginForm.value.username);
+    let password = btoa(this.loginForm.value.password);
+    this.authService.login( this.loginForm.value).subscribe(res => 
       
       console.log(res));
     
