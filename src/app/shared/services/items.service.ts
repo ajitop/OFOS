@@ -36,8 +36,7 @@ export class ItemsService {
   }
 
   getAllCategory(){
-    this.http.get(this.rootURL + '/category.php').subscribe(res => 
-      console.log(res))
+   return  this.http.get(this.rootURL + '/category.php');
   }
 
   findItem(itemName: string){

@@ -20,6 +20,7 @@ export class ItemsComponent implements OnInit {
   public selectedItem = 'all';
   selectedFood:any;
   items = [];
+  category:any = [];
   canBeAdded: any;
   displayModal: boolean;
   displayDetail:boolean = false;
@@ -30,7 +31,15 @@ export class ItemsComponent implements OnInit {
 
   ngOnInit(): void {
     this.items = this.itemService.getItems();
-    this.itemService.getAllCategory()
+    this.itemService.getAllCategory().subscribe((res:any) => {
+      
+      this.category = res.data
+      console.log(res.data);
+      
+    console.log(this.category);
+
+    });
+    
   }
 
   switchItem(key: any) {
