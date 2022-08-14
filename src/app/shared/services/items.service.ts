@@ -1,5 +1,6 @@
 import { HttpClient } from '@angular/common/http';
 import { Injectable } from '@angular/core';
+import { Observable } from 'rxjs';
 
 @Injectable({
   providedIn: 'root'
@@ -25,14 +26,10 @@ export class ItemsService {
 
   rootURL = 'http://67.205.165.41/ofos/api';
 
-  getItems(cat = 'all') {
-     this.http.get(this.rootURL + '/menu.php' + `?cat=1`).subscribe(res => 
-    console.log(res)
+  getItems(id): Observable<any> {
+    return this.http.get(this.rootURL + `/menu.php?cat=${id}`).pipe(
 
       )
-    
-
-    return (this.items.slice());
   }
 
   getAllCategory(){

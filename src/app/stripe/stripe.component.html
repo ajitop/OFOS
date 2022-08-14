@@ -1,0 +1,14 @@
+<div class="container">
+
+    <form novalidate (ngSubmit)="createToken()" [formGroup]="stripeTest">
+        <input type="text" class="form-control" formControlName="name" placeholder="Please enter your name">
+        <ngx-stripe-card
+        [options]="cardOptions"
+        [elementsOptions]="elementsOptions"
+        style="margin: 16px"
+        ></ngx-stripe-card>
+        <button type="submit" style="float: right;" class="btn btn-primary">
+            Pay
+        </button>
+    </form>
+</div>

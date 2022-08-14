@@ -1,0 +1,20 @@
+.container{
+    height: 100%;
+    width: 60%;
+    border: 1px solid lightgray;
+    border-radius: 8px;
+    padding-top: 24px;
+    padding-bottom: 60px;
+    margin-bottom: 16px;
+    box-shadow: 0 -1px 0 0 light gray; /* Border top */
+box-shadow: 1px 0 0 0 light gray; /* Border right */
+box-shadow: 0 1px 0 0 light gray; /* Border bottom */
+box-shadow: -1px 0 0 0 light gray; /* Border left */
+box-shadow: 0 0 0 1px light gray; /* All the borders by using the spread properties */
+}
+input{
+    margin: 8px;
+}
+button{
+    margin: 24px;
+}

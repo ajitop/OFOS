@@ -6,7 +6,7 @@ import {ButtonModule} from 'primeng/button';
 import { CommonModule } from '@angular/common';
 import { AppRoutingModule } from './app-routing.module';
 import {DialogModule} from 'primeng/dialog';
-import { ReactiveFormsModule } from '@angular/forms';
+import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { AppComponent } from './app.component';
 import { HeaderComponent } from './header/header.component';
 import { CartComponent } from './cart/cart.component';
@@ -18,6 +18,9 @@ import {BadgeModule} from 'primeng/badge';
 import {TooltipModule} from 'primeng/tooltip';
 import { HttpClientModule } from '@angular/common/http';
 import { FooterComponent } from './footer/footer.component';
+import { ToastrModule } from 'ngx-toastr';
+import { NgxStripeModule } from 'ngx-stripe';
+import { StripeComponent } from './stripe/stripe.component';
 @NgModule({
   declarations: [
     AppComponent,
@@ -25,6 +28,7 @@ import { FooterComponent } from './footer/footer.component';
     CartComponent,
     ItemsComponent,
     LoginComponent,
+  StripeComponent,
     RegistrationComponent,
     ItemDetailComponent,
     FooterComponent
@@ -36,7 +40,10 @@ import { FooterComponent } from './footer/footer.component';
     BrowserAnimationsModule,
     ButtonModule,
     CommonModule,
-    DialogModule,ReactiveFormsModule
+    NgxStripeModule,
+    DialogModule,ReactiveFormsModule, FormsModule,
+    ToastrModule.forRoot(),
+    NgxStripeModule.forRoot('***your-stripe-publishable-key***'),
   ],
   providers: [],
   bootstrap: [AppComponent]

@@ -37,9 +37,10 @@
         </a>
         <a [routerLink]="['/cart']">
           <button class="btn btn-dark btn-sm btn-block"   type="button">
-            <i class="pi pi-shopping-cart" >
-              <p-badge *ngIf =" count > 0 && count" [value] = {count} severity="success"  severity="success">{{count } }</p-badge>
+            <i class="pi pi-shopping-cart mr-1" >
             </i>
+            <p-badge  [value] = 'count' severity="success"  severity="success"><span class="ml-1">{{count}}</span> </p-badge>
+
           </button>
         </a>
       </div>

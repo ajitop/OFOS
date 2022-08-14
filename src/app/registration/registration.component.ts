@@ -1,5 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { FormControl, FormGroup, Validators } from '@angular/forms';
+import { Router } from '@angular/router';
+import { ToastrService } from 'ngx-toastr';
 import { IMAGE_URL, LOGO } from '../shared/constant/url';
 import { AuthService } from '../shared/services/auth.service';
 
@@ -18,7 +20,7 @@ export class RegistrationComponent implements OnInit {
     email: new FormControl('', [Validators.required]),
     password: new FormControl('', Validators.required)
   });
-  constructor(private authService: AuthService) { }
+  constructor(private authService: AuthService, private router: Router, private toastr: ToastrService) { }
 
 
   ngOnInit(): void {
@@ -27,7 +29,14 @@ onSubmit(){
   console.log(this.registrationForm);
   
 this.authService.registration(this.registrationForm.value).subscribe(res => 
-  console.log(res)
+ { this.router.navigate(['./login'])
+ this.toastr.success('User registered successfully !',
+        'Success', {
+        enableHtml: true,
+        closeButton: true,
+        timeOut: 10000
+      });
+  console.log(res)}
   )
   
   

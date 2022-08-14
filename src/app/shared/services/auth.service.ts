@@ -1,4 +1,4 @@
-import { HttpClient } from '@angular/common/http';
+import { HttpClient, HttpHeaders } from '@angular/common/http';
 import { Injectable, EventEmitter } from "@angular/core";
 
 @Injectable({
@@ -10,7 +10,14 @@ import { Injectable, EventEmitter } from "@angular/core";
     rootURL = 'http://67.205.165.41/ofos/api';
 
     login(data){
-        return this.http.post(this.rootURL + '/auth.php', data);
+      var headers_object = new HttpHeaders();
+      headers_object.append('Content-Type', 'application/json');
+      headers_object.append("Authorization", "Basic " + btoa("username:password"));
+      
+      const httpOptions = {
+        headers: headers_object
+      };
+        return this.http.post(this.rootURL + '/auth.php', data, httpOptions);
         
     }
     registration(data:any){
