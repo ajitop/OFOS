@@ -78,7 +78,8 @@ export class CartComponent implements OnInit {
     }).then((result) => {
       /* Read more about isConfirmed, isDenied below */
       if (result.isConfirmed) {
-        Swal.fire('Order Place You will pay after recieving item.!', '', 'success')
+        Swal.fire('Order Place You will pay after recieving item.!', '', 'success');
+        this.router.navigate(['./home'])
       } else if (result.isDenied) {
         Swal.fire('Please pay with card', '', 'info')
         this.router.navigate(['./strip'])
