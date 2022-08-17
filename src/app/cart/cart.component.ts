@@ -56,7 +56,6 @@ export class CartComponent implements OnInit {
   }
 
   decrementSets(index: any) {
-    console.log('hello dec');
 
    this.foods[index].set--;
     this.subTotal -= Number(this.foods[index].price);

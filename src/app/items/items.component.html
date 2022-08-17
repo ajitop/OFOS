@@ -2,7 +2,7 @@
   <ul class="list-group list-group-horizontal " *ngFor="let itemType of category">
     <li class="border rounded" (click)="switchItem(itemType.category_id)" style="width: 200px;height: 200px; margin: 5px;">
       <p-card styleClass="my-card">
-        <img class="card-img-top" [src]="'https://img.freepik.com/free-vector/burger-with-fried-chicken-french-fries-soda-cartoon-vector-icon-illustration-fast-food-icon_138676-1972.jpg?w=2000'" alt="Card image cap" style="height: 140px;width:100% ;padding: 7px 10px 4px 1px ">
+        <img class="card-img-top"   class="rounded" [src]=itemType?.image alt="" style="height: 182px;width:100% ;padding: 7px 10px 4px 1px "> 
         <p-footer>
           <b class=" text-center" (click)="switchItem(itemType.category_id)">{{itemType.category_name}}</b>
         </p-footer>
@@ -28,7 +28,7 @@
         <!-- <p-card styleClass="item-card" (click)="addToCart(item)"> -->
           <p-card styleClass="item-card" >
 
-          <img class="rounded" [src]="'https://img.freepik.com/free-vector/burger-with-fried-chicken-french-fries-soda-cartoon-vector-icon-illustration-fast-food-icon_138676-1972.jpg?w=2000'" alt="" style="height: 182px;width:100% ;padding: 7px 10px 4px 1px ">
+          <img class="rounded" (click)="showItem(item)" [src]=item?.image alt="" style="height: 182px;width:100% ;padding: 7px 10px 4px 1px ">
           <p-footer>
             <span>
               <b (click)="showItem(item)"> {{item.menu_name}} </b>

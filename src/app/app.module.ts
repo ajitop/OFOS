@@ -21,6 +21,7 @@ import { FooterComponent } from './footer/footer.component';
 import { ToastrModule } from 'ngx-toastr';
 import { NgxStripeModule } from 'ngx-stripe';
 import { StripeComponent } from './stripe/stripe.component';
+import {AvatarModule} from 'primeng/avatar';
 @NgModule({
   declarations: [
     AppComponent,
@@ -40,6 +41,7 @@ import { StripeComponent } from './stripe/stripe.component';
     BrowserAnimationsModule,
     ButtonModule,
     CommonModule,
+    AvatarModule,
     NgxStripeModule,
     DialogModule,ReactiveFormsModule, FormsModule,
     ToastrModule.forRoot(),

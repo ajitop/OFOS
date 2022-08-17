@@ -62,13 +62,12 @@ export class ItemsComponent implements OnInit {
   }
 
   showItem(item: any) {
-    console.log(item);
     this.selectedFood = item;
 
     Swal.fire({
       title: item.name,
       text: item.description,
-      imageUrl: item.imagePath,
+      imageUrl: item.image,
       imageWidth: 400,
       imageHeight: 200,
       imageAlt: 'Custom image',

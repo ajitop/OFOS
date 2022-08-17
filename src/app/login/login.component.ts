@@ -11,7 +11,11 @@ import { AuthService } from "../shared/services/auth.service";
   styleUrls: ["./login.component.css"],
 })
 export class LoginComponent implements OnInit {
-  constructor(private authService: AuthService, private router: Router, private toastr: ToastrService) {}
+  constructor(
+    private authService: AuthService,
+    private router: Router,
+    private toastr: ToastrService
+  ) {}
   IMAGE_URL = IMAGE_URL;
   LOGO = LOGO;
   loginForm = new FormGroup({
@@ -23,17 +27,20 @@ export class LoginComponent implements OnInit {
   onSubmit() {
     let username = btoa(this.loginForm.value.username);
     let password = btoa(this.loginForm.value.password);
-    this.authService.login( this.loginForm.value).subscribe(res => 
-      
-    {this.router.navigate(['./home'])
-    this.toastr.success('Logged in successfully !',
-           'Success', {
-           enableHtml: true,
-           closeButton: true,
-           timeOut: 10000
-         });
+    this.authService.login(this.loginForm.value).subscribe((res: any) => {
+      localStorage.setItem(
+        "name",
+        JSON.stringify({
+          // 'token': res.data.token,
+          name: "Admin",
         })
-    
-
+      );
+      this.router.navigate(["./home"]);
+      this.toastr.success("Logged in successfully !", "Success", {
+        enableHtml: true,
+        closeButton: true,
+        timeOut: 10000,
+      });
+    });
   }
 }

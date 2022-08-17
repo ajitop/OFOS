@@ -1,0 +1,7 @@
+{
+    "/ofos/api/auth.php": {
+        "target": "http://67.205.165.41",
+        "secure": false,
+        "changeOrigin": true
+    }
+}

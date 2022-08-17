@@ -1,0 +1,6 @@
+{
+    "/ofos/api/*": {
+        "target": "http://67.205.165.41/ofos/api/",
+        "secure": false
+    }
+}

@@ -1,23 +1,26 @@
 <div class="d-flex">
   <div class="p-2 mr-auto">
     <span class="d-inline">
-      <a [routerLink]="['/home']" >
+      <a [routerLink]="['/home']">
         <button class="btn btn-dark btn-sm btn-default" type="button">
-          <i class="pi pi-home "></i>
+          <i class="pi pi-home"></i>
 
           Home
         </button>
       </a>
     </span>
-   
-
   </div>
   <div class="p-2">
     <div class="row">
       <div class="col">
         <div class="form-group has-search">
           <i class="pi pi-search form-control-feedback"></i>
-          <input type="text" class="form-control"  onchange="findItem()" placeholder="Search Item" />
+          <input
+            type="text"
+            class="form-control"
+            onchange="findItem()"
+            placeholder="Search Item"
+          />
         </div>
       </div>
       <div class="col" style="padding-top: 10px">
@@ -31,18 +34,29 @@
           </button>
         </a>
         <a [routerLink]="['/registration']">
-          <button style="margin-right: 2px" class="btn btn-dark btn-sm btn-block" type="button">
+          <button
+            style="margin-right: 2px"
+            class="btn btn-dark btn-sm btn-block"
+            type="button"
+          >
             Registration
           </button>
         </a>
         <a [routerLink]="['/cart']">
-          <button class="btn btn-dark btn-sm btn-block"   type="button">
-            <i class="pi pi-shopping-cart mr-1" >
-            </i>
-            <p-badge  [value] = 'count' severity="success"  severity="success"><span class="ml-1">{{count}}</span> </p-badge>
-
+          <button class="btn btn-dark btn-sm btn-block" type="button">
+            <i class="pi pi-shopping-cart mr-1"> </i>
+            <p-badge [value]="count" severity="success" severity="success"
+              ><span class="ml-1">{{ count }}</span>
+            </p-badge>
           </button>
         </a>
+        <button
+          class="btn btn-dark btn-sm btn-block"
+          (click)="onLogout()"
+          type="button"
+        >
+          Logout
+        </button>
       </div>
     </div>
   </div>
